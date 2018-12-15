@@ -3,7 +3,7 @@ module IdentityTijuana
     include ReadOnly
     self.table_name = 'users'
     has_many :taggings
-    has_many :tags, through: :taggings
+    has_many :tags, through: :users
     belongs_to :postcode, optional: true
 
     def import
