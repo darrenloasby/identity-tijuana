@@ -19,7 +19,7 @@ module IdentityTijuana
       member_hash[:phone] = home_number if home_number.present?
       member_hash[:mobile] = mobile_number if mobile_number.present?
 
-      Lead.delay.upsert_lead(member_hash, 'tijuana:fetch_updated_users')
+      Lead.delay.upsert_lead(member_hash)
     end
   end
 end
