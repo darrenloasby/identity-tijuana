@@ -12,7 +12,7 @@ module IdentityTijuana
         lastname: last_name,
         email: email,
         address1: street_address, city: suburb, zipcode: postcode.try(:number),
-        doNotContact: is_member
+        doNotContact: !is_member
       }
       
 #       member_hash[:state] = postcode.try(:state) if postcode.try(:state).present?
