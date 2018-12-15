@@ -2,7 +2,7 @@ module IdentityTijuana
   class User < ApplicationRecord
     include ReadOnly
     self.table_name = 'users'
-    has_many :taggings, as: :taggable
+    has_many :taggings, as: :taggable, source_type: 'User'
     has_many :tags, through: :taggings
     belongs_to :postcode, optional: true
 
@@ -21,7 +21,7 @@ module IdentityTijuana
       member_hash[:state] = c.states[postcode.state]["name"] if postcode
       member_hash[:phone] = home_number if home_number.present?
       member_hash[:mobile] = mobile_number if mobile_number.present?
-      member_hash[:mobile] = tags.join(',')
+      member_hash[:tags] = tags.join(',')
       
       Lead.delay.upsert_lead(member_hash)
     end
