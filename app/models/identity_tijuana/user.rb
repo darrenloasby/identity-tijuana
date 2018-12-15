@@ -15,7 +15,7 @@ module IdentityTijuana
         doNotContact: is_member
       }
       
-      member_hash[:state] = postcode.try(:state) if postcode.try(:state).present?
+#       member_hash[:state] = postcode.try(:state) if postcode.try(:state).present?
       member_hash[:phone] = home_number if home_number.present?
       member_hash[:mobile] = mobile_number if mobile_number.present?
 
