@@ -2,8 +2,8 @@ module IdentityTijuana
   class User < ApplicationRecord
     include ReadOnly
     self.table_name = 'users'
-    has_many :taggings, as: :taggable, source_type: 'User'
-    has_many :tags, through: :taggings, source_type: 'User'
+    has_many :taggings, as: :taggable
+    has_many :tags, through: :taggings
     belongs_to :postcode, optional: true
 
     def import
