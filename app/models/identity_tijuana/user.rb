@@ -11,11 +11,11 @@ module IdentityTijuana
         firstname: first_name,
         lastname: last_name,
         email: email,
-        address1: street_address, city: suburb, country: country_iso, state: postcode.try(:state), zipcode: postcode.try(:number),
+        address1: street_address, city: suburb, zipcode: postcode.try(:number),
         doNotContact: is_member
       }
       
-
+      member_hash[:state] = postcode.try(:state) if postcode.try(:state).present?
       member_hash[:phone] = home_number if home_number.present?
       member_hash[:mobile] = mobile_number if mobile_number.present?
 
