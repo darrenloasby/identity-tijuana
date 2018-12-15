@@ -14,7 +14,7 @@ module IdentityTijuana
         address1: street_address, city: suburb, zipcode: postcode.try(:number),
         doNotContact: !is_member
       }
-      c = ISO3166::Country.new(country_iso)
+      c = ISO3166::Country.new(country_iso) || ISO3166::Country.new('AU')
       member_hash[:country] = c.name if country_iso
       member_hash[:state] = c.states[postcode.state]["name"] if postcode.try(:state).present?
       member_hash[:phone] = home_number if home_number.present?
