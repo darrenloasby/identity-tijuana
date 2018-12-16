@@ -1,5 +1,6 @@
 module IdentityTijuana
   class User < ApplicationRecord
+    self.name = "User"
     include ReadOnly
     self.table_name = 'users'
     has_many :taggings, as: :taggable
