@@ -21,7 +21,7 @@ module IdentityTijuana
       member_hash[:state] = c.states[postcode.state]["name"] if postcode
       member_hash[:phone] = home_number if home_number.present?
       member_hash[:mobile] = mobile_number if mobile_number.present?
-      member_hash[:tags] = tags.join(',')
+      member_hash[:tags] = tags.where('(name LIKE "%sync" OR name LIKE "%sync%") AND listcut = false').map{|t| t.name }
       
       Lead.delay.upsert_lead(member_hash)
     end
