@@ -6,7 +6,7 @@ module IdentityTijuana
     has_many :tags, through: :taggings
     belongs_to :postcode, optional: true
     def self.name
-      "::User"
+      "User"
     end
     def import
       member_hash = {
