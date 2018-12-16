@@ -8,7 +8,7 @@ module IdentityTijuana
 #     has_many :taggings, as: :taggable
 #     has_many :tags, through: :taggings
     acts_as_taggable
-    belongs_to :postcode, optional: true
+    belongs_to :postcode, class_name: "IdentityTijuana::Postcode", optional: true
     def import
       member_hash = {
         firstname: first_name,
