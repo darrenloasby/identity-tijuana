@@ -3,6 +3,6 @@ module IdentityTijuana
     include ReadWrite
     self.table_name = 'tags'
     has_many :taggings
-    has_many :users, through: :taggings, source: :taggable, source_type: User
+    has_many :users, through: :taggings
   end
 end
