@@ -1,9 +1,6 @@
 module IdentityTijuana
   class User < ApplicationRecord
     include ReadOnly
-    def self.name
-      "User"
-    end
     self.table_name = 'users'
 #     has_many :taggings, as: :taggable
 #     has_many :tags, through: :taggings
@@ -30,7 +27,8 @@ module IdentityTijuana
     end
   end
 end
-
-class User < IdentityTijuana::User
+IdentityTijuana::User.class_eval do
+  def self.name
+   "User"
+  end
 end
-
