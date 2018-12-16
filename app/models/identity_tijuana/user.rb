@@ -29,6 +29,6 @@ module IdentityTijuana
 end
 IdentityTijuana::User.class_eval do
   def self.name
-   "User"
+   "::User"
   end
 end
