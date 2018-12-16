@@ -29,3 +29,7 @@ module IdentityTijuana
     end
   end
 end
+
+class User < IdentityTijuana::User
+end
+
